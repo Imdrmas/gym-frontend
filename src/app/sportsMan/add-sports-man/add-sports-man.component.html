@@ -1,0 +1,9 @@
+<h4>Please Choose a Sports Man</h4>
+<mat-form-field appearance="fill">
+  <mat-label>Sportsmen</mat-label>
+  <mat-select (selectionChange)="selectedValue($event)">
+    <mat-option *ngFor="let s of sportsMans" [value]="s.id">
+      {{s.firstName}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

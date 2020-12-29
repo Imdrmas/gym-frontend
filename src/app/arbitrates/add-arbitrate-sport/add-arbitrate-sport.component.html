@@ -1,0 +1,9 @@
+<h4>Please Choose a arbitrate</h4>
+<mat-form-field appearance="fill">
+  <mat-label>arbitrates</mat-label>
+  <mat-select (selectionChange)="selectedValue($event)">
+    <mat-option *ngFor="let s of arbitrates" [value]="s.id">
+      {{s.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

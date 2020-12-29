@@ -1,0 +1,30 @@
+<div class="form-content">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{title}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+  <mat-progress-bar mode="indeterminate" *ngIf="showProgressBar"></mat-progress-bar>
+  <div class="example-container"> <br>
+    <mat-form-field appearance="fill" class="mat-form-field">
+      <mat-label>Enter name</mat-label>
+      <input matInput type="text" [(ngModel)]="sport.name" name="name">
+    </mat-form-field><br>
+  
+    <mat-form-field appearance="fill" class="mat-form-field">
+      <mat-label>Enter description</mat-label>
+      <input matInput type="text" [(ngModel)]="sport.description" name="description">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="mat-form-field">
+      <mat-label>Enter photo</mat-label>
+      <input matInput type="text" [(ngModel)]="sport.photo" name="photo">
+    </mat-form-field><br>
+
+  </div>
+</mat-card-content>
+<mat-card-actions>
+  <button mat-raised-button color="warn" (click)="addSport()" class="button">Save</button>
+</mat-card-actions><br>
+</mat-card>
+</div> 

@@ -1,0 +1,13 @@
+.header-image {
+    background-image: url('https://designgyan.com/srp457/assets3/icons/loginLogo.png');
+    background-size: cover;
+  }
+  .content {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 50px;
+  }
+  button,
+  mat-form-field {
+      width: 100%;
+  }

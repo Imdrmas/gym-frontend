@@ -1,0 +1,39 @@
+<div class="form-content">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Edit gym information</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-progress-bar mode="indeterminate" *ngIf="showProgressBar"></mat-progress-bar>
+        <div class="example-container"> <br>
+          <mat-form-field appearance="fill" class="mat-form-field">
+            <mat-label>Enter name</mat-label>
+            <input matInput type="text" [(ngModel)]="gym.name" name="name">
+          </mat-form-field><br>
+        
+          <mat-form-field appearance="fill" class="mat-form-field">
+            <mat-label>Enter Address</mat-label>
+            <input matInput type="text" [(ngModel)]="gym.address" name="address">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="mat-form-field">
+            <mat-label>Enter city</mat-label>
+            <input matInput type="text" [(ngModel)]="gym.city" name="city">
+          </mat-form-field><br>
+
+          <mat-form-field appearance="fill" class="mat-form-field">
+            <mat-label>Enter area</mat-label>
+            <input matInput type="number" [(ngModel)]="gym.area" name="area">
+          </mat-form-field><br>
+        
+          <mat-form-field appearance="fill" class="mat-form-field">
+            <mat-label>Enter logo</mat-label>
+            <input matInput type="text" [(ngModel)]="gym.logo" name="logo">
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="editGym()" class="button">Save</button>
+      </mat-card-actions><br>
+    </mat-card>
+    </div>

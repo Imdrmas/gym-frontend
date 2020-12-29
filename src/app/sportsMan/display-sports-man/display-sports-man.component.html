@@ -1,0 +1,58 @@
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false" *ngFor="let s of sportsMan">
+      <mat-expansion-panel-header (click)="showSports(s.id)">
+        <mat-panel-title>
+         SportsMan
+        </mat-panel-title>
+        <mat-panel-description>
+          {{s.firstName}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <table id="table">
+        <tr>
+          <th>Avatar</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Sex</th>
+          <th *ngIf="user.admin">Details</th>
+        </tr>
+        <tr>
+         <td><img src="{{s.avatar}}" alt="Avatar" style="width: 50px; height: 44px;"></td>
+          <td>{{s.lastName}}</td>
+          <td>{{s.age}}</td>
+          <td>{{s.sex}}</td>
+          <td *ngIf="user.admin">
+            <mat-chip-list aria-label="Fish selection">
+              <mat-chip style="cursor: pointer;"><span class="material-icons" (click)="openEditSportsMan(s.id)">edit</span></mat-chip>
+              <mat-chip style="cursor: pointer;"><span class="material-icons" (click)="deleteSportsMan(s.id)">close</span></mat-chip>
+              <mat-chip style="cursor: pointer;" color="accent" selected (click)="addSportForSportsMan(s.id, idGym)">Add sport</mat-chip>
+              <mat-chip style="cursor: pointer;" color="primary" selected (click)="addPayment(s.id)">Add payment</mat-chip>
+            </mat-chip-list>
+          </td>
+        </tr>
+      </table><br>
+
+      <div id="maincontainer">
+        <div id="sportColumn">
+          <p style="font-weight: bold;">Playing sports:</p>
+          <p *ngFor="let sport of sports">
+            -  {{sport.name}}         
+          </p>
+        </div>
+        <div id="paymentColumn">
+          <p style="font-weight: bold;">Payment payed:</p>
+          <p *ngFor="let p of payments">
+            <span>Cost: {{p.cost}}$</span><br>
+            <span>Duration: {{p.duration}} month</span><br>
+            <span>{{p.date | date}}</span>
+            <button mat-icon-button color="warn" (click)="deletePayment(p.id)">
+              <mat-icon>close</mat-icon>
+            </button>
+          </p>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+

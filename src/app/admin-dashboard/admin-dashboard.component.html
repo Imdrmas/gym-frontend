@@ -1,0 +1,92 @@
+<mat-tab-group>
+    <mat-tab label="Add gym"> <br><br>
+      <div class="form-content">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Add gym information</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-progress-bar mode="indeterminate" *ngIf="showProgressBar"></mat-progress-bar>
+            <div class="example-container"> <br>
+              <mat-form-field appearance="fill" class="mat-form-field">
+                <mat-label>Enter name</mat-label>
+                <input matInput type="text" [(ngModel)]="gym.name" name="name">
+              </mat-form-field><br>
+            
+              <mat-form-field appearance="fill" class="mat-form-field">
+                <mat-label>Enter Address</mat-label>
+                <input matInput type="text" [(ngModel)]="gym.address" name="address">
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="mat-form-field">
+                <mat-label>Enter city</mat-label>
+                <input matInput type="text" [(ngModel)]="gym.city" name="city">
+              </mat-form-field><br>
+
+              <mat-form-field appearance="fill" class="mat-form-field">
+                <mat-label>Enter area</mat-label>
+                <input matInput type="number" [(ngModel)]="gym.area" name="area">
+              </mat-form-field><br>
+            
+              <mat-form-field appearance="fill" class="mat-form-field">
+                <mat-label>Enter logo</mat-label>
+                <input matInput type="text" [(ngModel)]="gym.logo" name="logo">
+              </mat-form-field>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="addGym()" class="button">Save</button>
+          </mat-card-actions><br>
+        </mat-card>
+        </div>
+    </mat-tab>
+    <mat-tab label="Add sports man">
+      <br><br>
+      <div class="form-content">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Add sports man information</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+      <mat-progress-bar mode="indeterminate" *ngIf="showProgressBar"></mat-progress-bar>
+      <div class="example-container"> <br>
+        <mat-form-field appearance="fill" class="mat-form-field">
+          <mat-label>Enter firstName</mat-label>
+          <input matInput type="text" [(ngModel)]="sportsMan.firstName" name="firstName">
+        </mat-form-field><br>
+      
+        <mat-form-field appearance="fill" class="mat-form-field">
+          <mat-label>Enter lastName</mat-label>
+          <input matInput type="text" [(ngModel)]="sportsMan.lastName" name="lastName">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="mat-form-field">
+          <mat-label>Enter age</mat-label>
+          <input matInput type="number" [(ngModel)]="sportsMan.age" name="age">
+        </mat-form-field><br>
+
+        <mat-form-field appearance="fill" class="mat-form-field">
+          <mat-label>Enter avatar</mat-label>
+          <input matInput type="text" [(ngModel)]="sportsMan.avatar" name="avatar">
+        </mat-form-field><br>
+
+        <mat-radio-group aria-label="Select an option" [(ngModel)]="gender" name="gender" (ngModelChange)="setGender()">
+          <mat-radio-button value="female">Female</mat-radio-button>
+          <mat-radio-button value="male" style="margin-left: 10px;">Male</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="warn" (click)="addSportsMan()" class="button">Save</button>
+    </mat-card-actions><br>
+  </mat-card>
+  </div> 
+
+    </mat-tab>
+  </mat-tab-group>
+
+  <div class="footer">
+    <p>Welcome {{username}}</p>
+    <button mat-button color="warn" (click)="home()">Frontend</button>    
+    <button mat-button color="accent" (click)="logout(user.id)">Logout</button>
+  </div>

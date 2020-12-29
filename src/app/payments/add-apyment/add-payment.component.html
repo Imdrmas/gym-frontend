@@ -1,0 +1,30 @@
+<div class="form-content">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Add sport information</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+  <mat-progress-bar mode="indeterminate" *ngIf="showProgressBar"></mat-progress-bar>
+  <div class="example-container"> <br>
+    <mat-form-field appearance="fill" class="mat-form-field">
+      <mat-label>Enter cost</mat-label>
+      <input matInput type="number" [(ngModel)]="payment.cost" name="cost">
+    </mat-form-field><br>
+  
+    <mat-form-field appearance="fill" class="mat-form-field">
+      <mat-label>Enter duration</mat-label>
+      <input matInput type="text" [(ngModel)]="payment.duration" name="duration">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="mat-form-field">
+      <mat-label>Enter date</mat-label>
+      <input matInput type="date" [(ngModel)]="payment.date" name="date">
+    </mat-form-field><br>
+
+  </div>
+</mat-card-content>
+<mat-card-actions>
+  <button mat-raised-button color="warn" (click)="addPayment()" class="button">Save</button>
+</mat-card-actions><br>
+</mat-card>
+</div> 

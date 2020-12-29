@@ -1,0 +1,129 @@
+
+  <mat-card style="margin: 20px;">
+    <mat-card-header>
+      <mat-card-title>Work time information</mat-card-title>
+      <mat-card-subtitle>All the times</mat-card-subtitle>
+    </mat-card-header><hr>
+    <mat-card-content>
+
+<table id="table">
+  <tr>
+    <th>Day</th>
+    <th>Date</th>
+    <th>Start</th>
+    <th>End</th>
+    <th *ngIf="user.admin">Details</th>
+  </tr>
+  <tr *ngFor="let element of worktimes">
+    <td>{{element.day}}</td>
+    <td>{{element.timetable | date}}</td>
+    <td>{{element.start}}</td>
+    <td>{{element.end}}</td>
+    <td *ngIf="user.admin">
+      <mat-chip-list aria-label="Fish selection">
+        <mat-chip style="cursor: pointer;"><span class="material-icons" (click)="openEditWorktime(element.id, id)">edit</span></mat-chip>
+        <mat-chip style="cursor: pointer;"><span class="material-icons" (click)="deleteWorktime(element.id)">close</span></mat-chip>
+        <mat-chip style="cursor: pointer;" color="accent" selected (click)="openAddSportsMan(element.id)">Add person</mat-chip>
+        <mat-chip style="cursor: pointer;" (click)="showSportsMan(element.id, idGym)"> SportsMan </mat-chip>
+      </mat-chip-list>
+    </td>
+  </tr>
+</table>
+    </mat-card-content>
+    <mat-card-actions>
+      <span *ngIf="user.admin">
+        <button mat-raised-button color="primary" (click)="openAddWorktime(id)" >Add worktime</button>
+      </span>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card style="margin: 20px;">
+    <mat-card-header>
+      <mat-card-title>Sports information</mat-card-title>
+      <mat-card-subtitle>All the sports</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+
+      <mat-list *ngFor="let sport of sports">
+        <mat-divider></mat-divider><br>
+        <mat-list-item style="cursor: pointer" (click)="displaySport(sport.id)"> 
+          <img src="{{sport.photo}}" alt="Photo of a {{sport.name}}" style="width: 60px;  margin-right: 10px;"> {{sport.name}} 
+        </mat-list-item>
+        <mat-list-item style="color: #77797b !important;"> {{sport.description}} </mat-list-item>
+
+           <div style="display: flex;">
+            <div>
+              <h2>Trains</h2>
+                <p *ngFor="let train of sport.trains"> - {{train.name}}</p>
+            </div>
+   
+            <div style="margin-left: 40px;">
+              <h2>Arbitrates</h2>
+                <p *ngFor="let a of sport.arbitrates"> - {{a.name}}</p>
+            </div>
+           </div>
+
+        <mat-list-item *ngIf="user.admin">   
+          <button mat-stroked-button (click)="addTrainForSport(sport.id)">Add train for sport</button>
+          <button mat-stroked-button color="primary" (click)="addTrainForArbitrate(sport.id)" style="margin-left: 10px;">Add arbitrate for sport</button>   
+       <button mat-icon-button color="warn" (click)="deleteSport(sport.id, idGym)">
+            <mat-icon>close</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="editSport(sport.id)">
+          <mat-icon>edit</mat-icon>
+      </button>
+      </mat-list-item>
+       </mat-list>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <span *ngIf="user.admin">
+        <button mat-raised-button color="accent" (click)="addSportForGym(id)" >Add sport</button>
+      </span>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card style="margin: 20px;">
+    <mat-card-header>
+      <mat-card-title>Train and Arbitrate information</mat-card-title>
+      <mat-card-subtitle>All the trains and arbitrates</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+
+      <div style="display: flex;">
+        <div>
+          <h2>Trains</h2>
+          <p *ngFor="let train of trains">- {{train.name}}
+            <span *ngIf="user.admin">
+            <button mat-icon-button (click)="deleteTrain(train.id)" style="color: #c53c13;">
+              <mat-icon>close</mat-icon>
+            </button>
+            <button mat-icon-button (click)="editTrain(train.id)" style="color: darkgray;">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </span>
+          </p>
+          <span *ngIf="user.admin">
+            <button mat-raised-button color="primary" (click)="addTrain(id)">Add train</button>
+          </span>
+        </div>
+        <div style="margin-left: 40px;">
+          <h2>Arbitrates</h2>
+            <p *ngFor="let a of arbitrates">- {{a.name}}
+              <span *ngIf="user.admin">
+              <button mat-icon-button (click)="deleteArbitrate(a.id)" style="color: #c53c13;">
+                <mat-icon>close</mat-icon>
+              </button>
+              <button mat-icon-button (click)="editArbitrate(a.id)" style="color: darkgray;">
+                <mat-icon>edit</mat-icon>
+              </button>
+              </span>
+            </p>
+          <span *ngIf="user.admin">
+            <button mat-raised-button color="primary" (click)="addArbitrate(id)" >Add arbitrate</button>
+          </span>
+        </div>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
